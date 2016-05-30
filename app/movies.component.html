@@ -1,0 +1,9 @@
+<ul class="movies">
+    <li *ngFor="let movie of movies" 
+        (click)="onSelect(movie)"
+        [class.selected]="movie === selectedMovie">
+        <!--<span class="badge">{{movies.indexOf(movie)}}</span>{{movie.Title}} ({{movie.Year}})-->
+        <span class="badge">{{movie.Type}}</span>{{movie.Title}} ({{movie.Year}})
+    </li>
+    <movie-detail [movie]="selectedMovie"></movie-detail>
+</ul>

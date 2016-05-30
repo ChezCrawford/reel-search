@@ -1,10 +1,4 @@
-/* Master Styles */
-h1 {
-  color: #369; 
-  font-family: Arial, Helvetica, sans-serif;   
-  font-size: 250%;
-}
-h2, h3 { 
+h2 { 
   color: #444;
   font-family: Arial, Helvetica, sans-serif;   
   font-weight: lighter;
@@ -15,10 +9,6 @@ body {
 body, input[text], button { 
   color: #888; 
   font-family: Cambria, Georgia; 
-}
-a {
-  cursor: pointer;
-  cursor: hand;
 }
 button {
   font-family: Arial;
@@ -37,8 +27,21 @@ button:disabled {
   color: #aaa; 
   cursor: auto;
 }
+/* everywhere else */
+* { 
+  font-family: Arial, Helvetica, sans-serif; 
+}
 
-/* Navigation link styles */
+h1 {
+  font-size: 1.2em;
+  color: #999;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -56,87 +59,4 @@ nav a:hover {
 }
 nav a.router-link-active {
   color: #039be5;
-}
-
-/* items class */
-.items {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 24em;
-}
-.items li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-.items li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.items li.selected:hover {
-  background-color: #BBD8DC;
-  color: white;
-}
-.items .text {
-  position: relative;
-  top: -3px;
-}
-.items {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 24em;
-}
-.items li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-}
-.items li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.items li.selected {
-  background-color: #CFD8DC;
-  color: white;
-}
-
-.items li.selected:hover {
-  background-color: #BBD8DC;
-}
-.items .text {
-  position: relative;
-  top: -3px;
-}
-.items .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
-}
-
-/* everywhere else */
-* { 
-  font-family: Arial, Helvetica, sans-serif; 
 }
