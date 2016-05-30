@@ -13,7 +13,7 @@ export class MovieService {
     constructor(private http: Http) { }
     
     searchMovies(searchString: string): Promise<Movie[]> {
-        let movieUrl = `${this.omdbApiBaseUrl}?s=${searchString}`;
+        let movieUrl = `${this.omdbApiBaseUrl}?s=${searchString}&type=movie`;
         return this.http.get(movieUrl)
                     .toPromise()
                     .then(response => response.json().Search)

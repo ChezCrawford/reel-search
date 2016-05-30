@@ -1,13 +1,25 @@
 <div *ngIf="movieDetail">
     <div>
         <div>
-            <label>Title:</label> {{movieDetail.Title}}
+            <label>Title: </label> {{movieDetail.Title | uppercase}} ({{movieDetail.Rated}})
         </div>
         <div>
-            <label>Genre:</label> {{movieDetail.Genre}}
+            <label>Released: </label> {{movieDetail.Released}}
         </div>
         <div>
-            <label>Plot:</label> {{movieDetail.Plot}}
+            <label>Genre: </label> {{movieDetail.Genre}}
+        </div>
+        <div>
+            <label>Director(s): </label> {{movieDetail.Director}}
+        </div>
+        <div>
+            <label>Writer(s): </label> {{movieDetail.Writer}}
+        </div>
+        <div>
+            <label>Actor(s): </label> {{movieDetail.Actors}}
+        </div>
+        <div>
+            <label>Plot: </label> {{movieDetail.Plot}}
         </div>
     </div>
 </div>

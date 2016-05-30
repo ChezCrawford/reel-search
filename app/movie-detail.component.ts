@@ -5,6 +5,7 @@ import { MovieService } from './movie.service';
 
 @Component({
     selector: 'movie-detail',
+    styleUrls: ['app/movie-detail.component.css'],
     templateUrl: 'app/movie-detail.component.html'
 })
 export class MovieDetailComponent implements OnChanges {
