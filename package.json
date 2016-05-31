@@ -1,7 +1,7 @@
 {
-  "name": "angular2-quickstart",
-  "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "name": "reel-search",
+  "version": "0.0.1",
+  "description": "An Angular 2 application for searching the OMDB API.",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",
@@ -17,7 +17,7 @@
     "webdriver:update": "webdriver-manager update"
   },
   "keywords": [],
-  "author": "",
+  "author": "Charlie Crawford (CharlieCrawford@live.com)",
   "license": "ISC",
   "dependencies": {
     "@angular/common":  "2.0.0-rc.1",
