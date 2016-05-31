@@ -18,9 +18,8 @@ export class MovieDetailComponent implements OnChanges {
     ngOnChanges() {
         if (this.movie) {
             let id = this.movie.imdbID;
-            this.movieService.getMovieByImdbId(id)
+            this.movieService.getMovieByImdbIdWithCache(id)
                 .then((movie) => {
-                    console.log("Got something!", movie);
                     this.movieDetail = movie;
                 });
         }

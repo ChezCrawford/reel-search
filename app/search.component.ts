@@ -6,6 +6,7 @@ import { MoviesComponent } from './movies.component';
 
 @Component({
     selector: 'movie-search',
+    styleUrls: ['app/search.component.css'],
     template: `
     <input #searchBox
     (keyup.enter)="performSearch(searchBox.value)">
