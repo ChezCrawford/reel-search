@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 import { Movie } from './movie'
 import { MovieSearch } from './movie-search'
@@ -10,12 +10,16 @@ import { MovieDetailComponent } from './movie-detail.component'
     templateUrl: 'app/movies.component.html',
     directives: [MovieDetailComponent]
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnChanges {
     @Input()
     currentMovieSearch: MovieSearch;
     selectedMovie: Movie;
     
     constructor() { }
+    
+    ngOnChanges() {
+        this.selectedMovie = null;
+    }
     
     onSelect(movie: Movie) {
         this.selectedMovie = movie;

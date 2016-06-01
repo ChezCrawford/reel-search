@@ -23,5 +23,8 @@ export class MovieDetailComponent implements OnChanges {
                     this.movieDetail = movie;
                 });
         }
+        else {
+            this.movieDetail = null;
+        }
     }
 }
