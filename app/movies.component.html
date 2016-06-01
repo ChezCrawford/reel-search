@@ -1,8 +1,15 @@
-<ul class="movies">
-    <li *ngFor="let movie of movies" 
-        (click)="onSelect(movie)"
-        [class.selected]="movie === selectedMovie">
-        <span class="badge">{{movies.indexOf(movie)+1}}</span>{{movie.Title}} ({{movie.Year}})
-    </li>
-    <movie-detail [movie]="selectedMovie"></movie-detail>
-</ul>
+<div>
+    <ol class="movies">
+        <div *ngIf="currentMovieSearch && currentMovieSearch.totalResults > 0">
+            <li *ngFor="let movie of currentMovieSearch.movies"
+                (click)="onSelect(movie)"
+                [class.selected]="movie === selectedMovie">
+                <span class="badge">{{currentMovieSearch.movies.indexOf(movie)+1}}</span>{{movie.Title}} ({{movie.Year}})
+            </li>
+            <movie-detail [movie]="selectedMovie"></movie-detail>
+        </div>
+    </ol>
+    <div *ngIf="currentMovieSearch && currentMovieSearch.totalResults == 0">
+        No results found.
+    </div>
+</div>

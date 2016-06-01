@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { Movie } from './movie'
+import { MovieSearch } from './movie-search'
 import { MovieService } from './movie.service';
 import { MoviesComponent } from './movies.component';
 
@@ -14,16 +14,14 @@ import { MoviesComponent } from './movies.component';
     `
 })
 export class SearchComponent {
-    movies: Movie[];  
-    @Output() onSearchResults = new EventEmitter<Movie[]>();
+    @Output() onSearchResults = new EventEmitter<MovieSearch>();
 
     constructor(private movieService: MovieService) { }
     
     private performSearch(searchString: string) {
         this.movieService.searchMovies(searchString)
-             .then((movies) => {
-                this.movies = movies;
-                this.onSearchResults.emit(movies);
+             .then((movieSearch) => {
+                this.onSearchResults.emit(movieSearch);
              });
     } 
 }

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
 import { Movie } from './movie';
+import { MovieSearch } from './movie-search';
 
 @Injectable()
 export class MovieService {
@@ -12,11 +13,13 @@ export class MovieService {
     
     constructor(private http: Http) { }
     
-    searchMovies(searchString: string): Promise<Movie[]> {
+    searchMovies(searchString: string): Promise<MovieSearch> {
         let movieUrl = `${this.omdbApiBaseUrl}?s=${searchString}&type=movie`;
         return this.http.get(movieUrl)
                     .toPromise()
-                    .then(response => response.json().Search)
+                    .then((response) => {
+                        return this.parseSearchResponse(response);
+                    })
                     .catch(this.handleError);
     }
     
@@ -29,7 +32,7 @@ export class MovieService {
             let movieUrl = `${this.omdbApiBaseUrl}?i=${imdbID}`;
             return this.http.get(movieUrl)
                         .toPromise()
-                        .then(response => response.json())
+                        .then((response) => response.json())
                         .catch(this.handleError);
         }
     }
@@ -45,6 +48,18 @@ export class MovieService {
                         this.cachePut(movie);
                         return movie;
                     });
+    }
+    
+    private parseSearchResponse(response: Response): MovieSearch {
+        console.log("Processing response %s", response);
+        
+        let movieSearch = new MovieSearch();
+        if (response.json().Response === "True") {
+            movieSearch.totalResults = response.json().totalResults;
+            movieSearch.movies = response.json().Search;
+        }
+        
+        return movieSearch;
     }
     
     private cachePut(movie: Movie) {

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Movie } from './movie'
+import { MovieSearch } from './movie-search'
 import { MovieDetailComponent } from './movie-detail.component'
 
 @Component({
@@ -11,8 +12,7 @@ import { MovieDetailComponent } from './movie-detail.component'
 })
 export class MoviesComponent {
     @Input()
-    movies: Movie[];
-    
+    currentMovieSearch: MovieSearch;
     selectedMovie: Movie;
     
     constructor() { }
