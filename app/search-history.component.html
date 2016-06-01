@@ -1,0 +1,6 @@
+<div class="history">
+    <span *ngFor="let movieSearch of movieSearches"
+          (click)="onHistorySelect(movieSearch)">
+        "{{ movieSearch.searchString }}"
+    </span>
+</div>

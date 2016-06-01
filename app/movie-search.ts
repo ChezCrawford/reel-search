@@ -4,8 +4,10 @@ export class MovieSearch {
     movies: Array<Movie>;
     totalResults: number;
     currentPage: number;
+    searchString: string;
     
-    constructor() {
+    constructor(searchString: string) {
+        this.searchString = searchString;
         this.totalResults = 0;
     }
 }

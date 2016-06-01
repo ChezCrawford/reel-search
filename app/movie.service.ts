@@ -18,7 +18,7 @@ export class MovieService {
         return this.http.get(movieUrl)
                     .toPromise()
                     .then((response) => {
-                        return this.parseSearchResponse(response);
+                        return this.parseSearchResponse(response, searchString);
                     })
                     .catch(this.handleError);
     }
@@ -50,10 +50,10 @@ export class MovieService {
                     });
     }
     
-    private parseSearchResponse(response: Response): MovieSearch {
+    private parseSearchResponse(response: Response, searchString: string): MovieSearch {
         console.log("Processing response %s", response);
         
-        let movieSearch = new MovieSearch();
+        let movieSearch = new MovieSearch(searchString);
         if (response.json().Response === "True") {
             movieSearch.totalResults = response.json().totalResults;
             movieSearch.movies = response.json().Search;
